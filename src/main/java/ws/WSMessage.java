@@ -28,7 +28,7 @@ public class WSMessage {
 	@OnMessage
 	public void onMessage(Session session, String jsonMessage) {
 		log.log(Level.INFO, "message: "+jsonMessage);
-		sendToAll(jsonMessage);
+		sendToAll(jsonMessage, session);
 	}
 
 	@OnOpen
@@ -52,11 +52,13 @@ public class WSMessage {
 		return instance;
 	}
 	
-	public void sendToAll(String text){		
+	public void sendToAll(String text, Session session){		
 		try{
 			synchronized (messages) {
 				for (Message message : messages) {
-					message.getSession().getBasicRemote().sendText(text);
+					if(message.getSession() != session){
+						message.getSession().getBasicRemote().sendText(text);
+					}
 				}
 			}
 		}catch (IOException ex) {

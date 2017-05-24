@@ -1,0 +1,7 @@
+---
+applications:
+ - name: KeepCalmServer
+   random-route: true
+   path: target/KeepCalmServer.war
+   memory: 512M
+   instances: 1
