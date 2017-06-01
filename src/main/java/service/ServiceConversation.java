@@ -9,6 +9,9 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import com.ibm.watson.developer_cloud.conversation.v1.ConversationService;
 import com.ibm.watson.developer_cloud.conversation.v1.model.MessageRequest;
 import com.ibm.watson.developer_cloud.conversation.v1.model.MessageResponse;
@@ -35,7 +38,13 @@ public class ServiceConversation {
 		
 		context = response.getContext();
 				
-		return response.toString();
+		JSONObject jsonObject = new JSONObject(response.toString());
+		
+		JSONObject output = new JSONObject(jsonObject.get("output").toString());
+		
+		JSONArray jsonArray = new JSONArray(output.get("text").toString());
+		
+		return jsonArray.toString();
 	}
 
 }
