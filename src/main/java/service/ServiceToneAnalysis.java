@@ -47,7 +47,7 @@ public class ServiceToneAnalysis {
 	public String translateText(String text){
 		
 		LanguageTranslator serviceTranslate = new LanguageTranslator();
-		serviceTranslate.setUsernameAndPassword("9ba7e966-7158-4a89-9282-e8a10a88bf5b", "kpykI5kpxqFY");
+		serviceTranslate.setUsernameAndPassword("c7d75272-9937-46c7-a559-1b230272adc8", "VDfY2OyD2Ypf");
 		
 		TranslationResult translationResult = serviceTranslate.translate(text, Language.PORTUGUESE, Language.ENGLISH).execute();
 				
