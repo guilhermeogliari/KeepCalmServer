@@ -31,7 +31,7 @@ public class ServiceToneAnalysis {
 	public String toneAnalysis(String text){
 		
 		ToneAnalyzer service = new ToneAnalyzer(ToneAnalyzer.VERSION_DATE_2016_05_19);
-		service.setUsernameAndPassword("d7f718aa-2616-4e49-b4cc-df9a028c63c4", "yj0DmSme2p8N");
+		service.setUsernameAndPassword("26a63819-6f8d-4d53-8465-1b49bd14dddf", "RvxlXTrEtdqm");
 		
 		ToneAnalysis tone = service.getTone(translateText(text), null).execute();
 		
